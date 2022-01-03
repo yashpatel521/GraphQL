@@ -1,0 +1,22 @@
+.my-container {
+  max-width: 550px !important;
+  margin-top: 10px;
+  border: 1px solid;
+  padding: 41px;
+  border-radius: 22px;
+  box-shadow: 1px 1px 76px 26px #999999;
+}
+
+input:focus {
+  border-bottom: 1px solid #673ab7 !important;
+  box-shadow: 0px 1px 0 0 #000 !important;
+}
+
+.profile-container {
+  max-width: 550px !important;
+  margin-top: 10px;
+}
+
+.profile-img {
+  border: 1px solid #000;
+}
