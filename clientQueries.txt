@@ -1,0 +1,115 @@
+----------------------------------------------------
+query getAllUsers{
+   users{
+    _id
+    firstName
+    lastName
+    email
+  }
+}
+
+-----------------------------------------------------
+query getUserByID{
+   user(_id:"23131"){
+    _id
+    firstName
+    lastName
+    email
+  }
+}
+-----------------------------------------------------
+query getUserByID($userId:ID!){
+   user(_id:$userId){
+    _id
+    firstName
+    lastName
+    email
+  }
+}
+
+-----------------------------------------------------
+query getAllQuotes{
+   quotes{
+    by
+    name
+  }
+}
+-----------------------------------------------------
+query getQuotesByUserID{
+   iquote(by:"23131"){
+    name
+    by
+  }
+}
+-----------------------------------------------------
+query getQuotesByUserID($userId:ID!){
+   iquote(by:$userId){
+    name
+    by
+  }
+}
+
+-----------------------------------------------------
+mutation createUser($userNew:UserInput!){
+  user:signupUserDumpy(UserNew:$userNew){
+    _id
+    firstName
+    lastName
+    email
+  }
+}
+{
+   "userNew":{
+      "firstName":"yash",
+      "lastName":"patel",
+      "email":"yash@yash.com",
+      "password":"123456"
+  	} 
+}
+-----------------------------------------------------
+mutation Usersignin($userNew:signinUserInput!){
+  signinUser(userSignin:$userNew){
+    token
+  }
+}
+{
+   "userNew":{
+      "email":"yash@yash.com",
+      "password":"123456"
+  	} 
+}
+----------------------------------------------------------------
+mutation updateUser($userNew:updateUserInput!){
+  user:updateUser(UpdateUser:$userNew)
+}
+{
+   "userNew":{
+      "firstName":"yashNew",
+      "lastName":"patel"
+  	} 
+}
+{
+  "authorization":""
+}
+----------------------------------------------------------------
+mutation createQuote{
+  Quote:createQuote(name: "I am yash2")
+}
+{
+  "authorization":""
+}
+----------------------------------------------------------------
+mutation updateQuote{
+  Quote:updateQuote(_id:"61cae830391c6719fff253fe" name:"toasys Qoutes" )
+}
+{
+  "authorization":""
+}
+----------------------------------------------------------------
+mutation deleteQuote{
+  Quote:deleteQuote(_id: "61cafafb4df185b2ceb9eaaa")
+}
+{
+  "authorization":""
+}
+----------------------------------------------------------------
